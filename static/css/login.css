@@ -1,0 +1,232 @@
+.login-section{
+
+    background:#111827;
+
+    min-height:100vh;
+
+}
+
+.login-image{
+
+    position:relative;
+
+}
+
+.glow-circle{
+
+    width:380px;
+
+    height:380px;
+
+    background:#8b5cf6;
+
+    opacity:.20;
+
+    filter:blur(90px);
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
+.floating-img{
+
+    position:relative;
+
+    z-index:10;
+
+    animation:float 4s ease-in-out infinite;
+
+    max-width:450px;
+
+}
+
+.login-card{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:45px;
+
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+
+}
+
+.login-title{
+
+    color:white;
+
+    font-size:48px;
+
+    font-weight:700;
+
+}
+
+.login-text{
+
+    color:#b8b8b8;
+
+    margin-bottom:35px;
+
+}
+
+.form-label{
+
+    color:white;
+
+    font-weight:500;
+
+}
+
+.login-card input{
+
+    background:#1f2937;
+
+    border:none;
+
+    color:white;
+
+    border-radius:12px;
+
+    padding:14px;
+
+}
+
+.login-card input:focus{
+
+    background:#1f2937;
+
+    color:white;
+
+    border:1px solid #8b5cf6;
+
+    box-shadow:0 0 15px rgba(139,92,246,.35);
+
+}
+
+.login-submit{
+
+    background:#8b5cf6;
+
+    color:white;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    font-weight:600;
+
+}
+
+.login-submit:hover{
+
+    background:#6d28d9;
+
+    color:white;
+
+}
+
+.register-link{
+
+    color:#d1d5db;
+
+    text-align:center;
+
+}
+
+.register-link a{
+
+    color:#8b5cf6;
+
+    text-decoration:none;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+/* Register Form Styling */
+
+.login-card input{
+
+    width:100%;
+
+    background:#1f2937;
+
+    color:white;
+
+    border:1px solid #374151;
+
+    border-radius:12px;
+
+    padding:14px 18px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.login-card input:focus{
+
+    border-color:#8b5cf6;
+
+    box-shadow:0 0 12px rgba(139,92,246,.35);
+
+}
+
+.helptext{
+
+    color:#9ca3af;
+
+    font-size:13px;
+
+    display:block;
+
+    margin-top:5px;
+
+}
+
+.errorlist{
+
+    list-style:none;
+
+    padding:0;
+
+    margin-top:6px;
+
+    color:#ef4444;
+
+    font-size:14px;
+
+}

@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+<section class="login-section">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-100">
+
+            <!-- Left Side -->
+
+            <div class="col-lg-6 text-center">
+
+                <div class="login-image">
+
+                    <div class="glow-circle"></div>
+
+                    <img src="{% static 'images/register.svg' %}"
+                         class="img-fluid floating-img"
+                         alt="Register">
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-6">
+
+                <div class="login-card">
+
+                    <h1 class="login-title">
+                        Create Account
+                    </h1>
+
+                    <p class="login-text">
+                        Join Our Tweet and start sharing your thoughts with the world.
+                    </p>
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        {% for field in form %}
+
+                            <div class="mb-3">
+
+                                <label class="form-label">
+
+                                    {{ field.label }}
+
+                                </label>
+
+                                {{ field }}
+
+                                {% if field.errors %}
+
+                                    <div class="text-danger mt-1">
+
+                                        {{ field.errors }}
+
+                                    </div>
+
+                                {% endif %}
+
+                            </div>
+
+                        {% endfor %}
+
+                        <button class="btn login-submit w-100 mt-3">
+
+                            Create Account
+
+                        </button>
+
+                    </form>
+
+                    <p class="register-link mt-4">
+
+                        Already have an account?
+
+                        <a href="{% url 'login' %}">
+
+                            Login
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

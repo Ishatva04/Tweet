@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Tweets
+{% endblock %}
+
+{% block content %}
+
+<section class="tweet-section">
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="d-flex justify-content-between align-items-center mb-5">
+
+            <div>
+
+                <h1 class="tweet-heading">
+                    Explore Tweets
+                </h1>
+
+                <p class="tweet-subtitle">
+                    Share your thoughts with the world.
+                </p>
+
+            </div>
+
+            <a href="{% url 'tweet_create' %}" class="btn create-btn">
+
+                <i class="fas fa-plus"></i>
+
+                Create Tweet
+
+            </a>
+
+        </div>
+
+        <!-- Cards -->
+
+        <div class="row g-4">
+
+            {% for tweet in tweets %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="tweet-card">
+
+                    {% if tweet.photo %}
+
+                    <img src="{{ tweet.photo.url }}"
+                         class="tweet-image"
+                         alt="Tweet Image">
+
+                    {% endif %}
+
+                    <div class="tweet-content">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <div class="avatar">
+
+                                {{ tweet.user.username|first|upper }}
+
+                            </div>
+
+                            <div class="ms-3">
+
+                                <h5 class="mb-0">
+
+                                    {{ tweet.user.username }}
+
+                                </h5>
+
+                                <small>
+
+                                    {{ tweet.created_at|date:"d M Y" }}
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <p class="tweet-text">
+
+                            {{ tweet.text }}
+
+                        </p>
+
+                        <div class="tweet-actions">
+
+                            <button class="action-btn">
+
+                                ❤️ Like
+
+                            </button>
+
+                            <button class="action-btn">
+
+                                💬 Comment
+
+                            </button>
+
+                        </div>
+
+                        {% if tweet.user == user %}
+
+                        <div class="owner-actions">
+
+                            <a href="{% url 'tweet_edit' tweet.id %}"
+                               class="btn edit-btn">
+
+                                Edit
+
+                            </a>
+
+                            <a href="{% url 'tweet_delete' tweet.id %}"
+                               class="btn delete-btn">
+
+                                Delete
+
+                            </a>
+
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
