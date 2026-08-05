@@ -134,7 +134,3 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/tweets/'
 LOGOUT_REDIRECT_URL = '/tweets/'
-
-SECRET_KEY = os.getenv("SECRET_KEY")
-
-DEBUG = os.getenv("DEBUG") == "True"
