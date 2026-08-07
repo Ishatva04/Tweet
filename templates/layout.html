@@ -110,19 +110,38 @@
 
             <div class="nav-buttons">
 
-                <a href="{% url 'login' %}"
-                   class="btn login-btn">
+                {% if user.is_authenticated %}
 
-                    Login
+                    <span class="text-white me-3">
+                        Hello, {{ user.username }}
+                    </span>
 
-                </a>
+                    <form method="POST"
+                        action="{% url 'logout' %}"
+                        style="display:inline;">
 
-                <a href="{% url 'register' %}"
-                   class="btn register-btn">
+                        {% csrf_token %}
 
-                    Register
+                        <button type="submit"
+                            class="btn register-btn">
+                            Logout
+                        </button>
 
-                </a>
+                    </form>
+
+                {% else %}
+
+                    <a href="{% url 'login' %}"
+                        class="btn login-btn">
+                        Login
+                    </a>
+
+                    <a href="{% url 'register' %}"
+                        class="btn register-btn">
+                        Register
+                    </a>
+
+                {% endif %}
 
             </div>
 
